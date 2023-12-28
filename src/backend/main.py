@@ -9,6 +9,7 @@ from backend.module.prophet import (
     extract_df_with_prophet_data,
 )
 from backend.module.read_dataset import read_dataset, get_holidays_jp
+from backend.module.shap import create_and_plot_shap_value
 from backend.random_forest import regressor
 
 
@@ -34,3 +35,5 @@ rf = regressor.Regressor()
 model = rf.make_random_forest_model(20, 9, 4, 8, 0.16)
 rf_model, pred = rf.fit_predict_rf_model(model, x_train, y_train, x_test)
 r2_score = rf.calc_r2_score(y_test, pred)
+
+shap_values = create_and_plot_shap_value(rf_model, x_train)
