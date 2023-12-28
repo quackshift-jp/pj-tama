@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-from typing import Union
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import r2_score
 from sklearn.model_selection import TimeSeriesSplit
@@ -54,7 +53,7 @@ class Regressor(AbstractRandomForestRegressor):
     ) -> (RandomForestRegressor, np.array):
         rf_model.fit(x_train, y_train)
         pred = rf_model.predict(x_test)
-        return rf_model, pred
+        return rf_model, np.ceil(pred)
 
     def calc_r2_score(self, y_true: np.array, y_pred: np.array) -> float:
         return r2_score(y_true, y_pred)
