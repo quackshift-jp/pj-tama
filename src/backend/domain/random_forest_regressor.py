@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 from abc import abstractmethod, ABC
-from sklearn.metrics import r2_score
 from sklearn.ensemble import RandomForestRegressor
 
 
@@ -29,7 +28,7 @@ class AbstractRandomForestRegressor(ABC):
         x_train: pd.DataFrame,
         y_train: pd.DataFrame,
         x_test: pd.DataFrame,
-    ) -> RandomForestRegressor:
+    ) -> (RandomForestRegressor, np.array):
         raise NotImplementedError()
 
     @abstractmethod
