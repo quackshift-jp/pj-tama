@@ -16,5 +16,5 @@ def create_and_plot_shap_value(
     """
     explainer = shap.TreeExplainer(rf_model)
     shap_values = explainer.shap_values(X=x_train)
-    shap.summary_plot(shap_values, x_train)
+    # shap.summary_plot(shap_values, x_train)
     return shap_values
