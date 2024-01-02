@@ -15,8 +15,9 @@ from src.frontend.component.show_explanations import (
 
 
 def initialize_state():
-    st.session_state["show_prophet"] = 0
     st.session_state["show_table"] = 0
+    st.session_state["show_prophet"] = 0
+    st.session_state["show_shap_importance"] = 0
 
 
 def regressor(input_file: UploadedFile) -> None:

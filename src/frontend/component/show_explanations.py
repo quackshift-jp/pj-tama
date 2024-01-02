@@ -18,7 +18,7 @@ def show_table(input_file: UploadedFile) -> None:
     if st.session_state["show_table"] > 0:
         st.dataframe(file)
     if st.sidebar.button(label="非表示", key="テーブル非表示"):
-        st.session_state["show_status"] = 0
+        st.session_state["show_table"] = 0
 
 
 def show_prophet(input_file: UploadedFile) -> None:
