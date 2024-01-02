@@ -32,17 +32,16 @@ def render():
     st.title("工場入荷予測モデル")
     input_file = st.sidebar.file_uploader(label="インプットファイルをアップロードしてください。", type=["csv"])
     if input_file:
-        # rf_model, x_train, r2_score = regressor(input_file)
-        # st.sidebar.markdown(f"### 精度:{r2_score}")
         if st.sidebar.button(label="インプットデータの表示", key="インプットデータの表示"):
             st.session_state["show_table"] = 1
             show_table(input_file)
         if st.sidebar.button(label="時系列要素の表示", key="時系列要素の表示"):
             st.session_state["show_prophet"] = 1
             show_prophet(input_file)
-        # if st.sidebar.button(label="特徴量貢献度の表示", key="特徴量貢献度の表示"):
-        #     st.session_state["show_shap_importance"] = 1
-        #     show_shap_importance(rf_model, x_train)
+        if st.sidebar.button(label="特徴量貢献度の表示", key="特徴量貢献度の表示"):
+            st.session_state["show_shap_importance"] = 1
+            rf_model, x_train, r2_score = regressor(input_file)
+            show_shap_importance(rf_model, x_train)
 
 
 render()

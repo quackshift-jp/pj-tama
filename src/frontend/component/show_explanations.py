@@ -33,11 +33,11 @@ def show_prophet(input_file: UploadedFile) -> None:
         st.session_state["show_prophet"] = 0
 
 
-# def show_shap_importance(rf_model: RandomForestRegressor, x_train: pd.DataFrame):
-#     st.markdown("### ✅特徴量貢献度の表示")
-#     if st.session_state["show_shap_importance"] > 0:
-#         explainer = shap.TreeExplainer(rf_model)
-#         shap_values = explainer.shap_values(X=x_train)
-#         st.pyplot(shap.summary_plot(shap_values, x_train))
-#     if st.sidebar.button(label="特徴量貢献度の非表示", key="特徴量貢献度の非表示"):
-#         st.session_state["show_shap_importance"] = 0
+def show_shap_importance(rf_model: RandomForestRegressor, x_train: pd.DataFrame):
+    st.markdown("### ✅特徴量貢献度の表示")
+    if st.session_state["show_shap_importance"] > 0:
+        explainer = shap.TreeExplainer(rf_model)
+        shap_values = explainer.shap_values(X=x_train)
+        st.pyplot(shap.summary_plot(shap_values, x_train))
+    if st.sidebar.button(label="特徴量貢献度の非表示", key="特徴量貢献度の非表示"):
+        st.session_state["show_shap_importance"] = 0
