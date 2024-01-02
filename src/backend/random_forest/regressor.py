@@ -1,9 +1,13 @@
 import pandas as pd
 import numpy as np
+import sys
+from pathlib import Path
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import r2_score
 from sklearn.model_selection import TimeSeriesSplit
-from backend.domain.random_forest_regressor import AbstractRandomForestRegressor
+
+sys.path.append(str(Path().absolute()))
+from src.backend.domain.random_forest_regressor import AbstractRandomForestRegressor
 
 
 def split_to_train_test(
